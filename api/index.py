@@ -38,6 +38,12 @@ def clone_api():
     data_str = data_str.replace('@simpleguy444', 'Old Id Ban Contact On new Id @RichAllOver')
     
     cleaned_data = json.loads(data_str)
+    
+    # Remove the unwanted fields
+    unwanted_keys = ["developer", "expiry", "req_left", "req_total"]
+    for key in unwanted_keys:
+        cleaned_data.pop(key, None)
+        
     cleaned_data["Credit"] = "Old Id Ban Contact On new Id @RichAllOver"
 
     return jsonify(cleaned_data)
