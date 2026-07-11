@@ -35,18 +35,9 @@ def clone_api():
 
     # Convert to string for easy global replacement of the developer's handle
     data_str = json.dumps(data)
-    data_str = data_str.replace("@simpleguy444", "@RichUniversal")
+    data_str = data_str.replace('@simpleguy444', 'Old Id Ban Contact On new Id @RichAllOver')
     
-    # Convert back to dictionary
-    data = json.loads(data_str)
+    cleaned_data = json.loads(data_str)
+    cleaned_data["Credit"] = "Old Id Ban Contact On new Id @RichAllOver"
 
-    # Remove the unwanted keys
-    keys_to_remove = ["req_left", "req_total", "expiry", "developer"]
-    for k in keys_to_remove:
-        data.pop(k, None)
-
-    # Add the new custom credit
-    data["Credit"] = "@RichUniversal"
-
-    return jsonify(data)
-
+    return jsonify(cleaned_data)
